@@ -4,10 +4,11 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_crt"]
 shader = ExtResource("1_crt")
-shader_parameter/scanline_count = 300.0
-shader_parameter/scanline_brightness = 0.08
-shader_parameter/vignette_strength = 0.6
-shader_parameter/noise_strength = 0.04
+shader_parameter/scanline_count = 800.0
+shader_parameter/scanline_brightness = 0.15
+shader_parameter/vignette_strength = 0.4
+shader_parameter/noise_strength = 0.03
+shader_parameter/mask_strength = 0.12
 
 [node name="CRTFilter" type="CanvasLayer"]
 layer = 100

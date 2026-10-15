@@ -1,24 +1,34 @@
 shader_type canvas_item;
 render_mode blend_mul;
 
-uniform float scanline_count : hint_range(0, 4096) = 300.0;
-uniform float scanline_brightness : hint_range(0, 1.0) = 0.08;
-uniform float vignette_strength : hint_range(0, 1.0) = 0.3;
-uniform float noise_strength : hint_range(0, 0.5) = 0.02;
+uniform float scanline_count : hint_range(0, 2048) = 800.0;
+uniform float scanline_brightness : hint_range(0, 1.0) = 0.15;
+uniform float vignette_strength : hint_range(0, 1.0) = 0.4;
+uniform float noise_strength : hint_range(0, 0.5) = 0.03;
+uniform float mask_strength : hint_range(0, 1.0) = 0.12;
 
 float rand(vec2 co) {
 	return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
 }
 
 void fragment() {
-	float scanline = sin(UV.y * scanline_count) * 0.5 + 0.5;
-	float scan_factor = mix(0.5, 1.0, scanline);
+	// Thin, frequent scanlines
+	float scanline = sin(UV.y * scanline_count * PI) * 0.5 + 0.5;
+	scanline = pow(scanline, 2.0);
+	float scan_factor = mix(1.0 - scanline_brightness, 1.0, scanline);
 
+	// Vertical shadow mask artifacts
+	float mask = sin(UV.x * 400.0) * 0.5 + 0.5;
+	mask = pow(mask, 5.0);
+	float mask_factor = mix(1.0 - mask_strength, 1.0, mask);
+
+	// Vignette - darker corners
 	float d = length(UV - 0.5) * 1.41421356;
-	float vignette_factor = 1.0 - smoothstep(0.3, 1.0, d) * vignette_strength;
+	float vignette_factor = 1.0 - smoothstep(0.2, 1.0, d) * vignette_strength;
 
-	float noise = rand(UV + TIME * 1.5) * noise_strength;
+	// Temporal noise
+	float noise = rand(UV + TIME * 3.0) * noise_strength;
 
-	COLOR.rgb = vec3(scan_factor * vignette_factor + noise);
+	COLOR.rgb = vec3(scan_factor * mask_factor * vignette_factor + noise);
 	COLOR.a = 1.0;
 }
