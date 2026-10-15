@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=4 uid="uid://crtfilter"]
+
+[ext_resource type="Shader" path="res://Menu/crt_shader.gdshader" id="1_crt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_crt"]
+shader = ExtResource("1_crt")
+shader_parameter/scanline_count = 300.0
+shader_parameter/scanline_brightness = 0.08
+shader_parameter/vignette_strength = 0.6
+shader_parameter/noise_strength = 0.04
+
+[node name="CRTFilter" type="CanvasLayer"]
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_crt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
