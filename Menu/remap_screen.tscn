@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bdakfrmsqallg"]
+
+[ext_resource type="Script" uid="uid://76hltkhibque" path="res://Menu/input_remap.gd" id="1_wcffa"]
+[ext_resource type="PackedScene" uid="uid://dntukeutv4ec7" path="res://Menu/button_remap.tscn" id="2_wprtd"]
+[ext_resource type="Script" uid="uid://1ncne64rfqa5" path="res://Menu/lib_vList.gd" id="3_ok1n8"]
+
+[node name="RemapScreen" type="Panel" unique_id=185351715]
+clip_contents = true
+offset_left = 32.0
+offset_top = 33.0
+offset_right = 1118.0
+offset_bottom = 613.0
+script = ExtResource("1_wcffa")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1381361603]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="ScrollInputRemap" type="ScrollContainer" parent="MarginContainer" unique_id=982699378]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollInputRemap" unique_id=1094015846]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="InputRemap" type="VBoxContainer" parent="MarginContainer/ScrollInputRemap/MarginContainer" unique_id=928447333]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="ButtonRemap" parent="MarginContainer/ScrollInputRemap/MarginContainer/InputRemap" unique_id=749425907 instance=ExtResource("2_wprtd")]
+layout_mode = 2
+
+[node name="ButtonReplicator" type="Node" parent="MarginContainer/ScrollInputRemap/MarginContainer/InputRemap" unique_id=1075338944]
+script = ExtResource("3_ok1n8")
+metadata/_custom_type_script = "uid://1ncne64rfqa5"
+
+[node name="ButtonBack" type="Button" parent="." unique_id=2054174218]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 9.0
+offset_right = 128.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 26
+text = "<< Back"
+
+[connection signal="pressed" from="ButtonBack" to="." method="_on_button_back_pressed"]

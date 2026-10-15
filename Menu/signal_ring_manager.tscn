@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://signal_ring_manager_scene"]
+
+[sub_resource type="Shader" id="SignalRingManagerShader"]
+code = "shader_type canvas_item;\n\nuniform vec2 ring_positions[32];\nuniform float ring_max_progresses[32];\nuniform vec4 ring_colors[32];\nuniform float ring_widths[32];\nuniform float ring_pulse_progresses[32];\nuniform int ring_actives[32];\nuniform int ring_count;\nuniform vec2 screen_size;\n\nvoid fragment() {\n    vec2 world_pos = FRAGCOORD.xy;\n    vec4 final_color = vec4(0.0);\n    \n    for (int i = 0; i < 32; i++) {\n        if (i >= ring_count) break;\n        if (ring_actives[i] == 0) continue;\n        \n        vec2 ring_center = ring_positions[i];\n        float d = length(world_pos - ring_center);\n        float max_r = ring_max_progresses[i] * min(screen_size.x, screen_size.y);\n        float progress = ring_pulse_progresses[i] * max_r;\n        float ring_width = ring_widths[i] * min(screen_size.x, screen_size.y);\n        \n        float alpha = step(progress - ring_width, d) * step(d, progress + ring_width);\n        float fade = 1.0 - smoothstep(0.85, 1.0, ring_pulse_progresses[i]);\n        \n        final_color += ring_colors[i] * alpha * fade;\n    }\n    \n    COLOR = final_color;\n}"
+
+[sub_resource type="ShaderMaterial" id="SignalRingManagerMaterial"]
+shader = SubResource("SignalRingManagerShader")
+shader_parameter/ring_positions = PackedVector2Array()
+shader_parameter/ring_max_progresses = PackedFloat32Array()
+shader_parameter/ring_colors = PackedColorArray()
+shader_parameter/ring_widths = PackedFloat32Array()
+shader_parameter/ring_pulse_progresses = PackedFloat32Array()
+shader_parameter/ring_actives = PackedInt32Array()
+shader_parameter/ring_count = 0
+shader_parameter/screen_size = Vector2(1920, 1080)
+
+[node name="ShaderCanvas" type="CanvasLayer" unique_id=1]
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+material = SubResource("SignalRingManagerMaterial")

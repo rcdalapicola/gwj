@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://c218pmg1k3jdy"]
+
+[ext_resource type="Script" uid="uid://dsacafsof7o78" path="res://Menu/crack.gd" id="1_bbp2d"]
+[ext_resource type="Texture2D" uid="uid://c14tued4al4jx" path="res://Resources/Sprites/circle.png" id="2_yrsv2"]
+[ext_resource type="Texture2D" uid="uid://ys18y4wvjuok" path="res://Resources/Sprites/emissor_sprite.png" id="4_bbp2d"]
+[ext_resource type="Texture2D" uid="uid://1dyelm3u4v3q" path="res://Resources/Sprites/crack.png" id="4_tl5a6"]
+[ext_resource type="AudioStream" uid="uid://db4642s0vjmr" path="res://Resources/Sound/SoundEffects/pink noise.wav" id="5_yrsv2"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yrsv2"]
+blend_mode = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5u7i"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 150
+corner_radius_top_right = 150
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 150
+
+[sub_resource type="Shader" id="Shader_pxa7u"]
+code = "shader_type canvas_item;
+
+uniform sampler2D crack_mask;
+uniform vec2 crack_world_pos;
+uniform float mask_size = 128.0;
+
+varying vec2 world_pos;
+
+void vertex() {
+	world_pos = (MODEL_MATRIX * vec4(VERTEX, 0.0, 1.0)).xy;
+}
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+
+	// Convert world position to mask coordinates
+	vec2 local = (world_pos - crack_world_pos) / mask_size + vec2(0.5);
+
+	float mask = 0.0;
+
+	// Only sample the mask inside its bounds
+	if (local.x >= 0.0 && local.x <= 1.0 &&
+		local.y >= 0.0 && local.y <= 1.0) {
+		mask = texture(crack_mask, local).r;
+	}
+
+	// Very strong blue recolor
+	vec3 strong_blue = vec3(0.0, 0.0, 1.0);
+
+	color.rgb = mix(color.rgb, strong_blue, mask);
+
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cotva"]
+shader = SubResource("Shader_pxa7u")
+shader_parameter/crack_world_pos = Vector2(0, 0)
+shader_parameter/mask_size = 128.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5s5no"]
+radius = 120.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbp2d"]
+atlas = ExtResource("4_bbp2d")
+region = Rect2(0, 0, 114, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrsv2"]
+atlas = ExtResource("4_bbp2d")
+region = Rect2(114, 0, 114, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5u7i"]
+atlas = ExtResource("4_bbp2d")
+region = Rect2(228, 0, 114, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl5a6"]
+atlas = ExtResource("4_bbp2d")
+region = Rect2(342, 0, 114, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ybqg"]
+atlas = ExtResource("4_bbp2d")
+region = Rect2(456, 0, 114, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4v7p"]
+atlas = ExtResource("4_bbp2d")
+region = Rect2(570, 0, 114, 129)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jyf0g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbp2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrsv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5u7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tl5a6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ybqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4v7p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Crack" type="Area2D" unique_id=1154132488]
+script = ExtResource("1_bbp2d")
+ellipse_radius_x = 200
+ring_max_progress = 1.0
+ring_color = Color(0.34117648, 0.7490196, 1, 1)
+
+[node name="Panel" type="Panel" parent="." unique_id=1935611069]
+visible = false
+self_modulate = Color(0.42171037, 0.7304506, 1, 1)
+z_index = 5
+material = SubResource("CanvasItemMaterial_yrsv2")
+offset_left = -118.0
+offset_top = -120.0
+offset_right = 120.0
+offset_bottom = 119.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e5u7i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=304677475]
+visible = false
+material = SubResource("ShaderMaterial_cotva")
+scale = Vector2(0.79, 0.79)
+texture = ExtResource("2_yrsv2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=873946851]
+shape = SubResource("CircleShape2D_5s5no")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1795379284]
+visible = false
+modulate = Color(0.34117648, 0.7490196, 1, 1)
+z_index = -1
+texture = ExtResource("4_tl5a6")
+
+[node name="Sprite2D3" type="AnimatedSprite2D" parent="." unique_id=2025926850]
+modulate = Color(0.34117648, 0.7490196, 1, 1)
+z_index = -1
+position = Vector2(1, 7)
+sprite_frames = SubResource("SpriteFrames_jyf0g")
+autoplay = "default"
+frame_progress = 0.026107987
+
+[node name="RingSprite" type="Sprite2D" parent="." unique_id=384729102]
+visible = false
+z_index = 10
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_yrsv2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1391343891]
+stream = ExtResource("5_yrsv2")
+autoplay = true
+max_distance = 250.0
+attenuation = 2.4622898

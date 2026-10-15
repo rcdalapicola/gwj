@@ -1,0 +1,280 @@
+[gd_scene format=3 uid="uid://cibpah847dn6b"]
+
+[ext_resource type="Script" uid="uid://c1p10yy1dupcu" path="res://Menu/root.gd" id="1_eafcm"]
+[ext_resource type="Script" uid="uid://ddvsoedrb6lrs" path="res://Menu/lib_button.gd" id="1_rwxi6"]
+[ext_resource type="Script" uid="uid://r8sxr88dyfbm" path="res://Menu/menu.gd" id="1_w6voe"]
+[ext_resource type="StyleBox" uid="uid://d2rhrkhmjmrku" path="res://Menu/menu_button.tres" id="2_ihied"]
+[ext_resource type="Script" uid="uid://1ncne64rfqa5" path="res://Menu/lib_vList.gd" id="2_raj00"]
+[ext_resource type="Texture2D" uid="uid://c0o26wpxy0vfq" path="res://Resources/Images/background.png" id="3_cotva"]
+[ext_resource type="PackedScene" uid="uid://bdakfrmsqallg" path="res://Menu/remap_screen.tscn" id="5_ofseh"]
+[ext_resource type="Script" uid="uid://bnukociefnquh" path="res://Menu/intro_menu.gd" id="5_w6voe"]
+[ext_resource type="Script" uid="uid://vt17k52kp7m7" path="res://Menu/ui_manager.gd" id="8_tf6kh"]
+[ext_resource type="AudioStream" uid="uid://di4nnkavhxc6r" path="res://Resources/Sound/Music/8.bit_.dub_.mp3" id="10_xuj3a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8w4re"]
+bg_color = Color(0, 0, 0, 0.65882355)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6voe"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.9647059, 0.43137255, 0.11372549, 0)
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.7254902, 1, 0.70980394, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mf1wf"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.3147981, 0.6633101, 0.8450253, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0.78352344, 0.78352344, 0.78352326, 0.6)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuj3a"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.49868518, 0.8260455, 0.89372176, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0.8, 0.9529412, 0.94509804, 0.6)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihied"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.69965345, 0.6996535, 0.6996533, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0.78352344, 0.78352344, 0.78352326, 0.6)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_raj00"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0.9413647, 0.9413647, 0.94136465, 0.6)
+shadow_size = 8
+
+[node name="Root" type="Node" unique_id=444397430]
+process_mode = 3
+script = ExtResource("1_eafcm")
+
+[node name="IntroMenu" type="CanvasLayer" parent="." unique_id=381533331]
+script = ExtResource("5_w6voe")
+
+[node name="TextureRect" type="TextureRect" parent="IntroMenu" unique_id=1679076632]
+offset_right = 1154.0
+offset_bottom = 656.0
+texture = ExtResource("3_cotva")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="IntroMenu" unique_id=688786213]
+offset_right = 1157.0
+offset_bottom = 655.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8w4re")
+
+[node name="MenuButtons" type="Control" parent="IntroMenu/Panel" unique_id=389495421]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="IntroMenu/Panel/MenuButtons" unique_id=2084067086]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 315.0
+offset_right = 873.0
+offset_bottom = 339.0
+text = "Start game"
+
+[node name="LibButton" type="Node" parent="IntroMenu/Panel/MenuButtons/Start" unique_id=1125976547]
+script = ExtResource("1_rwxi6")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="ConfigureInput" type="Button" parent="IntroMenu/Panel/MenuButtons" unique_id=272006679]
+layout_mode = 0
+offset_left = 309.0
+offset_top = 415.0
+offset_right = 876.0
+offset_bottom = 439.0
+text = "Configure Input"
+
+[node name="LibButton" type="Node" parent="IntroMenu/Panel/MenuButtons/ConfigureInput" unique_id=1234945026]
+script = ExtResource("1_rwxi6")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="Exit" type="Button" parent="IntroMenu/Panel/MenuButtons" unique_id=1236163505]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 516.0
+offset_right = 881.0
+offset_bottom = 540.0
+text = "Exit
+"
+
+[node name="LibButton" type="Node" parent="IntroMenu/Panel/MenuButtons/Exit" unique_id=68027312]
+script = ExtResource("1_rwxi6")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="ButtonReplicator" type="Node" parent="IntroMenu/Panel/MenuButtons" unique_id=173294813 node_paths=PackedStringArray("template_button")]
+script = ExtResource("2_raj00")
+template_button = NodePath("../../../TemplateButton")
+metadata/_custom_type_script = "uid://1ncne64rfqa5"
+
+[node name="Label" type="Label" parent="IntroMenu/Panel" unique_id=1464548297]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 78.0
+offset_right = 1133.0
+offset_bottom = 229.0
+theme_override_colors/font_color = Color(0.276777, 0.99999994, 0.7646777, 1)
+theme_override_font_sizes/font_size = 150
+text = "Game Jamming"
+
+[node name="TemplateButton" type="Button" parent="IntroMenu" unique_id=1921211987]
+offset_left = 274.0
+offset_top = 35.0
+offset_right = 867.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(0.7176471, 0.9843137, 0.33333334, 1)
+theme_override_colors/font_pressed_color = Color(0.05490196, 0.68235296, 0.81960785, 1)
+theme_override_colors/font_outline_color = Color(0.39858416, 0.83750993, 0.80855256, 1)
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_w6voe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mf1wf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xuj3a")
+text = "TemplateButton
+"
+
+[node name="RemapScreen" parent="IntroMenu" unique_id=27070562 node_paths=PackedStringArray("template_button") instance=ExtResource("5_ofseh")]
+visible = false
+offset_left = 174.0
+offset_right = 965.0
+template_button = NodePath("../TemplateButton")
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=2034788565]
+process_mode = 2
+visible = false
+script = ExtResource("1_w6voe")
+
+[node name="Panel" type="Panel" parent="PauseMenu" unique_id=1072651566]
+offset_right = 1157.0
+offset_bottom = 655.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8w4re")
+
+[node name="MenuButtons" type="VBoxContainer" parent="PauseMenu" unique_id=1971315177]
+offset_left = 320.0
+offset_right = 836.0
+offset_bottom = 649.0
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Resume" type="Button" parent="PauseMenu/MenuButtons" unique_id=923137797]
+layout_mode = 2
+text = "Resume"
+
+[node name="ConfigureInput" type="Button" parent="PauseMenu/MenuButtons" unique_id=691985684]
+layout_mode = 2
+text = "Configure Input"
+
+[node name="Exit" type="Button" parent="PauseMenu/MenuButtons" unique_id=87899412]
+layout_mode = 2
+text = "Exit
+"
+
+[node name="ButtonReplicator" type="Node" parent="PauseMenu/MenuButtons" unique_id=638853197 node_paths=PackedStringArray("template_button")]
+script = ExtResource("2_raj00")
+template_button = NodePath("../../TemplateButton")
+metadata/_custom_type_script = "uid://1ncne64rfqa5"
+
+[node name="TemplateButton" type="Button" parent="PauseMenu" unique_id=2102084736]
+offset_left = 274.0
+offset_top = 35.0
+offset_right = 867.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(0.7837851, 0.902368, 0.9065562, 1)
+theme_override_colors/font_pressed_color = Color(0.57220465, 0.770856, 0.7784058, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0.2627451, 1)
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = ExtResource("2_ihied")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ihied")
+theme_override_styles/hover = SubResource("StyleBoxFlat_raj00")
+text = "TemplateButton
+"
+
+[node name="RemapScreen" parent="PauseMenu" unique_id=185351715 node_paths=PackedStringArray("template_button") instance=ExtResource("5_ofseh")]
+visible = false
+template_button = NodePath("../TemplateButton")
+
+[node name="UIManager" type="CanvasLayer" parent="." unique_id=1495690155]
+script = ExtResource("8_tf6kh")
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=1102536657]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1731793217]
+z_index = -10
+offset_left = 10.0
+offset_top = 12.0
+offset_right = 1170.0
+offset_bottom = 677.0
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1622521792]
+stream = ExtResource("10_xuj3a")
+autoplay = true
+
+[connection signal="pause" from="." to="." method="_on_pause_change"]
+[connection signal="quitting_game" from="IntroMenu" to="." method="_on_quitting_game"]
+[connection signal="starting_game" from="IntroMenu" to="." method="_on_intro_menu_starting_game"]
+[connection signal="pressed" from="IntroMenu/Panel/MenuButtons/Start" to="IntroMenu" method="_on_start_pressed"]
+[connection signal="pressed" from="IntroMenu/Panel/MenuButtons/ConfigureInput" to="IntroMenu" method="_on_configure_input_pressed"]
+[connection signal="pressed" from="IntroMenu/Panel/MenuButtons/Exit" to="IntroMenu" method="_on_exit_pressed"]
+[connection signal="screen_closing" from="IntroMenu/RemapScreen" to="IntroMenu" method="_on_remap_screen_screen_closing"]
+[connection signal="quitting_game" from="PauseMenu" to="." method="_on_quitting_game"]
+[connection signal="resuming_game" from="PauseMenu" to="." method="_on_pause_menu_resuming_game"]
+[connection signal="pressed" from="PauseMenu/MenuButtons/Resume" to="PauseMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/MenuButtons/ConfigureInput" to="PauseMenu" method="_on_configure_input_pressed"]
+[connection signal="pressed" from="PauseMenu/MenuButtons/Exit" to="PauseMenu" method="_on_exit_pressed"]
+[connection signal="screen_closing" from="PauseMenu/RemapScreen" to="PauseMenu" method="_on_remap_screen_screen_closing"]

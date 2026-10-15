@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://b4kplxjvqmjs0"]
+
+[ext_resource type="Texture2D" uid="uid://d2a5wrkti66aj" path="res://Resources/Sprites/flag.png" id="1_xfwjf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfwjf"]
+size = Vector2(5, 16)
+
+[sub_resource type="Animation" id="Animation_xfwjf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6uctw"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h3kkx"]
+_data = {
+&"RESET": SubResource("Animation_xfwjf"),
+&"idle": SubResource("Animation_6uctw")
+}
+
+[node name="Flag" type="Area2D" unique_id=487654749]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1558112263]
+z_index = 2
+position = Vector2(-4, -8)
+texture = ExtResource("1_xfwjf")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1585655305]
+position = Vector2(-0.5, -8)
+shape = SubResource("RectangleShape2D_xfwjf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=418374074]
+libraries/ = SubResource("AnimationLibrary_h3kkx")
+autoplay = &"idle"
