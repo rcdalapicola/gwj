@@ -4,7 +4,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_crt"]
 shader = ExtResource("1_crt")
-shader_parameter/scanline_count = 800.0
+shader_parameter/scanline_count = 700.0
 shader_parameter/scanline_brightness = 0.35
 shader_parameter/vignette_strength = 0.6
 shader_parameter/noise_strength = 0.06

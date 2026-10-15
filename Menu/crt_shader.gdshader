@@ -1,7 +1,7 @@
 shader_type canvas_item;
 render_mode blend_mul;
 
-uniform float scanline_count : hint_range(0, 2048) = 800.0;
+uniform float scanline_count : hint_range(0, 2048) = 700.0;
 uniform float scanline_brightness : hint_range(0, 1.0) = 0.35;
 uniform float vignette_strength : hint_range(0, 1.0) = 0.6;
 uniform float noise_strength : hint_range(0, 0.5) = 0.06;
@@ -14,7 +14,7 @@ float rand(vec2 co) {
 void fragment() {
 	// Thin, frequent scanlines
 	float scanline = sin(UV.y * scanline_count * PI) * 0.5 + 0.5;
-	scanline = pow(scanline, 3.0);
+	scanline = pow(scanline, 1.6);
 	float scan_factor = mix(1.0 - scanline_brightness, 1.0, scanline);
 
 	// Vertical shadow mask artifacts
