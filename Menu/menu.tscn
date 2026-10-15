@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bdakfrmsqallg" path="res://Menu/remap_screen.tscn" id="5_ofseh"]
 [ext_resource type="Script" uid="uid://bnukociefnquh" path="res://Menu/intro_menu.gd" id="5_w6voe"]
 [ext_resource type="Script" uid="uid://vt17k52kp7m7" path="res://Menu/ui_manager.gd" id="8_tf6kh"]
+[ext_resource type="Texture2D" uid="uid://cl2dno4gls8ks" path="res://Resources/Images/neon.png" id="10_0k1h5"]
 [ext_resource type="AudioStream" uid="uid://di4nnkavhxc6r" path="res://Resources/Sound/Music/8.bit_.dub_.mp3" id="10_xuj3a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8w4re"]
@@ -162,6 +163,66 @@ script = ExtResource("2_raj00")
 template_button = NodePath("../../../TemplateButton")
 metadata/_custom_type_script = "uid://1ncne64rfqa5"
 
+[node name="StartMenuButtons" type="Control" parent="IntroMenu/Panel" unique_id=2119578850]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StartTutorial" type="Button" parent="IntroMenu/Panel/StartMenuButtons" unique_id=1560869071]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 232.0
+offset_right = 873.0
+offset_bottom = 256.0
+text = "Start from tutorial"
+
+[node name="LibButton" type="Node" parent="IntroMenu/Panel/StartMenuButtons/StartTutorial" unique_id=1261122899]
+script = ExtResource("1_rwxi6")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="StartSkip" type="Button" parent="IntroMenu/Panel/StartMenuButtons" unique_id=249211593]
+layout_mode = 0
+offset_left = 309.0
+offset_top = 332.0
+offset_right = 876.0
+offset_bottom = 356.0
+text = "Start skipping tutorial"
+
+[node name="LibButton" type="Node" parent="IntroMenu/Panel/StartMenuButtons/StartSkip" unique_id=704719548]
+script = ExtResource("1_rwxi6")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="StartLevel" type="Button" parent="IntroMenu/Panel/StartMenuButtons" unique_id=1432470031]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 433.0
+offset_right = 881.0
+offset_bottom = 457.0
+text = "Play single level
+"
+
+[node name="LibButton" type="Node" parent="IntroMenu/Panel/StartMenuButtons/StartLevel" unique_id=1145126801]
+script = ExtResource("1_rwxi6")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="Back" type="Button" parent="IntroMenu/Panel/StartMenuButtons" unique_id=736665507]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 566.0
+offset_right = 881.0
+offset_bottom = 590.0
+text = "Back"
+
+[node name="LibButton" type="Node" parent="IntroMenu/Panel/StartMenuButtons/Back" unique_id=1901843615]
+script = ExtResource("1_rwxi6")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="ButtonReplicator" type="Node" parent="IntroMenu/Panel/StartMenuButtons" unique_id=1931387396 node_paths=PackedStringArray("template_button")]
+script = ExtResource("2_raj00")
+template_button = NodePath("../../../TemplateButton")
+metadata/_custom_type_script = "uid://1ncne64rfqa5"
+
 [node name="Label" type="Label" parent="IntroMenu/Panel" unique_id=1464548297]
 layout_mode = 0
 offset_left = 55.0
@@ -248,6 +309,7 @@ visible = false
 template_button = NodePath("../TemplateButton")
 
 [node name="UIManager" type="CanvasLayer" parent="." unique_id=1495690155]
+layer = 200
 script = ExtResource("8_tf6kh")
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=1102536657]
@@ -261,6 +323,17 @@ offset_right = 1170.0
 offset_bottom = 677.0
 color = Color(0, 0, 0, 1)
 
+[node name="Parallax2D" type="Parallax2D" parent="Background" unique_id=1143147983]
+scroll_scale = Vector2(0.9, 0.9)
+
+[node name="TextureRect" type="TextureRect" parent="Background/Parallax2D" unique_id=575624272]
+self_modulate = Color(1, 1, 1, 0.5803922)
+offset_left = -86.0
+offset_top = -71.0
+offset_right = 1262.0
+offset_bottom = 747.0
+texture = ExtResource("10_0k1h5")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1622521792]
 stream = ExtResource("10_xuj3a")
 autoplay = true
@@ -271,6 +344,9 @@ autoplay = true
 [connection signal="pressed" from="IntroMenu/Panel/MenuButtons/Start" to="IntroMenu" method="_on_start_pressed"]
 [connection signal="pressed" from="IntroMenu/Panel/MenuButtons/ConfigureInput" to="IntroMenu" method="_on_configure_input_pressed"]
 [connection signal="pressed" from="IntroMenu/Panel/MenuButtons/Exit" to="IntroMenu" method="_on_exit_pressed"]
+[connection signal="pressed" from="IntroMenu/Panel/StartMenuButtons/StartTutorial" to="." method="_on_intro_menu_start_tutorial"]
+[connection signal="pressed" from="IntroMenu/Panel/StartMenuButtons/StartSkip" to="." method="_on_intro_menu_start_skip_tutorial"]
+[connection signal="pressed" from="IntroMenu/Panel/StartMenuButtons/Back" to="." method="_on_intro_menu_start_back"]
 [connection signal="screen_closing" from="IntroMenu/RemapScreen" to="IntroMenu" method="_on_remap_screen_screen_closing"]
 [connection signal="quitting_game" from="PauseMenu" to="." method="_on_quitting_game"]
 [connection signal="resuming_game" from="PauseMenu" to="." method="_on_pause_menu_resuming_game"]
