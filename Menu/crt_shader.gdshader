@@ -6,6 +6,7 @@ uniform float scanline_brightness : hint_range(0, 1.0) = 0.35;
 uniform float vignette_strength : hint_range(0, 1.0) = 0.6;
 uniform float noise_strength : hint_range(0, 0.5) = 0.06;
 uniform float mask_strength : hint_range(0, 1.0) = 0.25;
+uniform float brightness : hint_range(0.5, 2.0) = 1.15;
 
 float rand(vec2 co) {
 	return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
@@ -30,6 +31,6 @@ void fragment() {
 	float pulse = 0.95 + sin(TIME * 2.0) * 0.05;
 	float noise = rand(UV + TIME * 3.0) * noise_strength;
 
-	COLOR.rgb = vec3(scan_factor * mask_factor * vignette_factor * pulse + noise);
+	COLOR.rgb = vec3(scan_factor * mask_factor * vignette_factor * pulse + noise) * brightness;
 	COLOR.a = 1.0;
 }

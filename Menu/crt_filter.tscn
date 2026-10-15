@@ -9,6 +9,7 @@ shader_parameter/scanline_brightness = 0.35
 shader_parameter/vignette_strength = 0.6
 shader_parameter/noise_strength = 0.06
 shader_parameter/mask_strength = 0.25
+shader_parameter/brightness = 1.15
 
 [node name="CRTFilter" type="CanvasLayer"]
 layer = 100
