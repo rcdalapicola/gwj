@@ -2,11 +2,11 @@ shader_type canvas_item;
 render_mode blend_mul;
 
 uniform float scanline_count : hint_range(0, 2048) = 700.0;
-uniform float scanline_brightness : hint_range(0, 1.0) = 0.35;
-uniform float vignette_strength : hint_range(0, 1.0) = 0.6;
-uniform float noise_strength : hint_range(0, 0.5) = 0.06;
-uniform float mask_strength : hint_range(0, 1.0) = 0.25;
-uniform float brightness : hint_range(0.5, 2.0) = 1.15;
+uniform float scanline_brightness : hint_range(0, 1.0) = 0.25;
+uniform float vignette_strength : hint_range(0, 1.0) = 0.45;
+uniform float noise_strength : hint_range(0, 0.5) = 0.05;
+uniform float mask_strength : hint_range(0, 1.0) = 0.2;
+uniform float brightness : hint_range(0.5, 2.0) = 1.2;
 
 float rand(vec2 co) {
 	return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
