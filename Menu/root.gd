@@ -40,6 +40,8 @@ func _on_quitting_game() -> void:
 
 	get_tree().paused = false
 	is_paused = false
+	GameManager.resetScore()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if pause_menu:
 		pause_menu.display(false)
 
@@ -106,12 +108,14 @@ func _on_intro_menu_starting_game() -> void:
 	start_menu_buttons.visible = true
 	
 func _on_intro_menu_start_tutorial() -> void:
+	GameManager.resetScore()
 	_on_level_completed(0)
 	GameManager.enableScore(true)
 	if $IntroMenu:
 		$IntroMenu.visible = false
 	
 func _on_intro_menu_start_skip_tutorial() -> void:
+	GameManager.resetScore()
 	_on_level_completed(1)
 	GameManager.enableScore(true)
 	if $IntroMenu:
@@ -122,6 +126,7 @@ func _on_intro_menu_start_back() -> void:
 	menu_buttons.visible = true
 
 func select_level_pressed(button_string : String) -> void:
+	GameManager.resetScore()
 	_on_level_completed(button_string.to_int())
 	GameManager.enableScore(false)
 	if $IntroMenu:
@@ -172,6 +177,7 @@ func _on_intro_menu_level_selection_back() -> void:
 func _on_custom_menu_exit() -> void:
 	get_tree().paused = false
 	is_paused = false
+	GameManager.resetScore()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if $IntroMenu:
 		$IntroMenu.visible = true
