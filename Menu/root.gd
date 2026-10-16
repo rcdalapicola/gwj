@@ -26,15 +26,16 @@ func _on_quitting_game() -> void:
 	#return
 	#if OS.has_feature("web"):
 	# On the title screen, "exit" quits the game.
-	if not current_level:
+	if $IntroMenu and $IntroMenu.visible:
 		get_tree().quit()
 		return
 
 	# In-game: go back to the original menu without reloading the scene
-	if current_level:
-		current_level.crack_cursor(false)
-		current_level.queue_free()
+	if current_level and is_instance_valid(current_level):
+		var lvl = current_level
 		current_level = null
+		lvl.crack_cursor(false)
+		lvl.queue_free()
 
 	get_tree().paused = false
 	is_paused = false
@@ -53,6 +54,8 @@ func _on_quitting_game() -> void:
 		#get_tree().quit()
 
 func handle_pause(is_paused: bool) -> void:
+	if not current_level or not is_instance_valid(current_level):
+		return
 	pause_menu.display(is_paused)
 	current_level.crack_cursor(!is_paused)
 	get_tree().paused = is_paused
