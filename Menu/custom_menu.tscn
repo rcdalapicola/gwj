@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c4v1xn8wqltjc"]
 
+[ext_resource type="Script" uid="uid://bwew6qcmvti1u" path="res://Menu/custom_menu.gd" id="1_ybbjj"]
 [ext_resource type="Texture2D" uid="uid://c0o26wpxy0vfq" path="res://Resources/Images/background.png" id="2_d7oou"]
 [ext_resource type="Script" uid="uid://ddvsoedrb6lrs" path="res://Menu/lib_button.gd" id="3_auhwq"]
 [ext_resource type="Script" uid="uid://1ncne64rfqa5" path="res://Menu/lib_vList.gd" id="4_4qihf"]
@@ -75,6 +76,7 @@ corner_detail = 1
 shadow_color = Color(0.8, 0.9529412, 0.94509804, 0.6)
 
 [node name="CustomMenu" type="CanvasLayer" unique_id=763320531]
+script = ExtResource("1_ybbjj")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=534133259]
 offset_right = 1154.0
@@ -92,7 +94,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Exit" type="Button" parent="Panel/MenuButtons" unique_id=842895724]
+[node name="Save" type="Button" parent="Panel/MenuButtons" unique_id=842895724]
 layout_mode = 0
 offset_left = 307.0
 offset_top = 448.0
@@ -100,20 +102,20 @@ offset_right = 881.0
 offset_bottom = 472.0
 text = "Save"
 
-[node name="LibButton" type="Node" parent="Panel/MenuButtons/Exit" unique_id=1160327599]
+[node name="LibButton" type="Node" parent="Panel/MenuButtons/Save" unique_id=1160327599]
 script = ExtResource("3_auhwq")
 metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
 
-[node name="Exit2" type="Button" parent="Panel/MenuButtons" unique_id=734055525]
+[node name="Exit" type="Button" parent="Panel/MenuButtons" unique_id=734055525]
 layout_mode = 0
 offset_left = 307.0
 offset_top = 546.0
 offset_right = 881.0
 offset_bottom = 570.0
-text = "Exit
+text = "Exit wihtout saving
 "
 
-[node name="LibButton" type="Node" parent="Panel/MenuButtons/Exit2" unique_id=488818329]
+[node name="LibButton" type="Node" parent="Panel/MenuButtons/Exit" unique_id=488818329]
 script = ExtResource("3_auhwq")
 metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
 
@@ -172,3 +174,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_mf1wf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_xuj3a")
 text = "TemplateButton
 "
+
+[connection signal="pressed" from="Panel/MenuButtons/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Panel/MenuButtons/Exit" to="." method="_on_exit_pressed"]

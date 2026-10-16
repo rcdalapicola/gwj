@@ -13,6 +13,7 @@ var current_level: Node
 
 var is_paused = false
 
+const last_level = 9
 
 func _unhandled_input(event):
 	if $IntroMenu and $IntroMenu.visible:
@@ -128,19 +129,28 @@ func select_level_pressed(button_string : String) -> void:
 
 func _on_level_completed(next_level: int):
 	if current_level:
+		current_level.crack_cursor(false)
 		current_level.queue_free()
-
+		
 	get_tree().paused = false
 	is_paused = false
 	pause_menu.display(false)
 
 	if next_level > 1:
 		GameManager.updateScore()
+		
+	if next_level > last_level:
+		if !GameManager.isScoreEnabled():
+			GameManager.resetScore()
+		var scene = load("res://Menu/custom_menu.tscn").instantiate()
+		scene.exit_without_saving.connect(_on_custom_menu_exit)
+		get_tree().current_scene.add_child(scene)
+		return
 
 	GameManager.setEmissorAmount(_get_level_emissor(next_level))
 
 	current_level = load(_get_level(next_level)).instantiate()
-	print("Getting level: " + _get_level(next_level))
+	current_level.crack_cursor(true)
 	current_level.level_completed.connect(_on_level_completed)
 	get_tree().current_scene.add_child(current_level)
 	#current_level.crack_cursor(true)
@@ -159,6 +169,19 @@ func _on_intro_menu_level_selection_back() -> void:
 	start_menu_level_selection.visible = false
 	start_menu_buttons.visible = true
 
+func _on_custom_menu_exit() -> void:
+	get_tree().paused = false
+	is_paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if $IntroMenu:
+		$IntroMenu.visible = true
+		if menu_buttons:
+			menu_buttons.visible = true
+		if start_menu_buttons:
+			start_menu_buttons.visible = false
+		if start_menu_level_selection:
+			start_menu_level_selection.visible = false
+
 func _ready() -> void:
 	SilentWolf.configure_scores({
 	"open_scene_on_close": "res://Menu/menu.tscn"
@@ -175,3 +198,7 @@ func change_cursor(in_game : bool):
 	else:
 		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		current_level.crack_cursor(false)
+
+
+func _on_leaderboard_pressed() -> void:
+	get_tree().change_scene_to_file("res://addons/silent_wolf/Scores/Leaderboard.tscn")
