@@ -15,7 +15,7 @@ var is_paused = false
 
 
 func _unhandled_input(event):
-	if $IntroMenu:
+	if $IntroMenu and $IntroMenu.visible:
 		return
 
 	if event.is_action_pressed("pause"):
@@ -27,10 +27,26 @@ func _on_quitting_game() -> void:
 	#if OS.has_feature("web"):
 	if menu_buttons:
 		get_tree().quit()
-	
+
+	# In-game: go back to the original menu without reloading the scene
+	if current_level:
+		current_level.crack_cursor(false)
+		current_level.queue_free()
+		current_level = null
+
 	get_tree().paused = false
 	is_paused = false
-	get_tree().reload_current_scene()
+	if pause_menu:
+		pause_menu.display(false)
+
+	if $IntroMenu:
+		$IntroMenu.visible = true
+		if menu_buttons:
+			menu_buttons.visible = true
+		if start_menu_buttons:
+			start_menu_buttons.visible = false
+		if start_menu_level_selection:
+			start_menu_level_selection.visible = false
 	#else:
 		#get_tree().quit()
 
@@ -86,12 +102,14 @@ func _on_intro_menu_starting_game() -> void:
 func _on_intro_menu_start_tutorial() -> void:
 	_on_level_completed(0)
 	GameManager.enableScore(true)
-	$IntroMenu.queue_free()
+	if $IntroMenu:
+		$IntroMenu.visible = false
 	
 func _on_intro_menu_start_skip_tutorial() -> void:
 	_on_level_completed(1)
 	GameManager.enableScore(true)
-	$IntroMenu.queue_free()
+	if $IntroMenu:
+		$IntroMenu.visible = false
 	
 func _on_intro_menu_start_back() -> void:
 	start_menu_buttons.visible = false
@@ -100,7 +118,8 @@ func _on_intro_menu_start_back() -> void:
 func select_level_pressed(button_string : String) -> void:
 	_on_level_completed(button_string.to_int())
 	GameManager.enableScore(false)
-	$IntroMenu.queue_free()
+	if $IntroMenu:
+		$IntroMenu.visible = false
 
 func _on_level_completed(next_level: int):
 	if current_level:
