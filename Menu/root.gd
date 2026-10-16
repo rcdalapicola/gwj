@@ -25,8 +25,10 @@ func _on_quitting_game() -> void:
 	#SilentWolf.Scores.save_score("Tester Player", 360)
 	#return
 	#if OS.has_feature("web"):
-	if menu_buttons:
+	# On the title screen, "exit" quits the game.
+	if not current_level:
 		get_tree().quit()
+		return
 
 	# In-game: go back to the original menu without reloading the scene
 	if current_level:
