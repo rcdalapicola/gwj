@@ -28,6 +28,8 @@ func _on_quitting_game() -> void:
 	if menu_buttons:
 		get_tree().quit()
 	
+	get_tree().paused = false
+	is_paused = false
 	get_tree().reload_current_scene()
 	#else:
 		#get_tree().quit()
@@ -103,7 +105,11 @@ func select_level_pressed(button_string : String) -> void:
 func _on_level_completed(next_level: int):
 	if current_level:
 		current_level.queue_free()
-	
+
+	get_tree().paused = false
+	is_paused = false
+	pause_menu.display(false)
+
 	if next_level > 1:
 		GameManager.updateScore()
 
