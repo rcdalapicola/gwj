@@ -26,13 +26,20 @@ func _reset():
 		return
 	
 	is_resetting = true
+	GameManager.setEmissorAmount(0)
+	GameManager.addScore(-2)
 	get_parent().level_completed.emit(current_level_index)
 
 func _input(event):
-	if Input.is_action_just_pressed("click"):
-		spawn_scene_at_mouse()
 	if Input.is_action_just_pressed("reset"):
 		_reset()
+	if Input.is_action_just_pressed("click"):
+		if GameManager.getEmissor() > 0:
+			spawn_scene_at_mouse()
+			var emissors_left = GameManager.useEmissor()
+			if emissors_left == 0:
+				get_parent().crack_cursor(false)
+
 
 func _on_flag_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

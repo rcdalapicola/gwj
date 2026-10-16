@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://c4v1xn8wqltjc"]
+
+[ext_resource type="Texture2D" uid="uid://c0o26wpxy0vfq" path="res://Resources/Images/background.png" id="2_d7oou"]
+[ext_resource type="Script" uid="uid://ddvsoedrb6lrs" path="res://Menu/lib_button.gd" id="3_auhwq"]
+[ext_resource type="Script" uid="uid://1ncne64rfqa5" path="res://Menu/lib_vList.gd" id="4_4qihf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8w4re"]
+bg_color = Color(0, 0, 0, 0.65882355)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ybbjj"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_5s5no"]
+font_size = 128
+font_color = Color(0.6188471, 0.30195934, 0.750479, 1)
+shadow_size = 2
+shadow_color = Color(0.98966557, 0.6159282, 0.34157112, 1)
+shadow_offset = Vector2(4, 4)
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(2, 2)
+stacked_shadow_0/color = Color(0.960481, 0.34429014, 0.5820958, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_505lh"]
+font_size = 64
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6voe"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.9647059, 0.43137255, 0.11372549, 0)
+draw_center = false
+border_width_left = 4
+border_width_top = 1
+border_width_right = 4
+border_width_bottom = 10
+border_color = Color(0.55196667, 0.25846702, 0.2651768, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 1
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mf1wf"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 5
+border_width_top = 1
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.91684145, 0.484533, 0.52246106, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 1
+shadow_color = Color(0.78352344, 0.78352344, 0.78352326, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuj3a"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 4
+border_width_top = 1
+border_width_right = 4
+border_width_bottom = 10
+border_color = Color(0.5529412, 0.25882354, 0.26666668, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 1
+shadow_color = Color(0.8, 0.9529412, 0.94509804, 0.6)
+
+[node name="CustomMenu" type="CanvasLayer" unique_id=763320531]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=534133259]
+offset_right = 1154.0
+offset_bottom = 656.0
+texture = ExtResource("2_d7oou")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=1646167467]
+offset_right = 1157.0
+offset_bottom = 655.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8w4re")
+
+[node name="MenuButtons" type="Control" parent="Panel" unique_id=1720693092]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Exit" type="Button" parent="Panel/MenuButtons" unique_id=842895724]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 448.0
+offset_right = 881.0
+offset_bottom = 472.0
+text = "Save"
+
+[node name="LibButton" type="Node" parent="Panel/MenuButtons/Exit" unique_id=1160327599]
+script = ExtResource("3_auhwq")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="Exit2" type="Button" parent="Panel/MenuButtons" unique_id=734055525]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 546.0
+offset_right = 881.0
+offset_bottom = 570.0
+text = "Exit
+"
+
+[node name="LibButton" type="Node" parent="Panel/MenuButtons/Exit2" unique_id=488818329]
+script = ExtResource("3_auhwq")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="ButtonReplicator" type="Node" parent="Panel/MenuButtons" unique_id=519503622 node_paths=PackedStringArray("template_button")]
+script = ExtResource("4_4qihf")
+template_button = NodePath("../../../TemplateButton")
+metadata/_custom_type_script = "uid://1ncne64rfqa5"
+
+[node name="InputName" type="LineEdit" parent="Panel/MenuButtons" unique_id=1245741618]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 335.0
+offset_right = 935.0
+offset_bottom = 403.0
+
+[node name="ScoreLabel" type="Label" parent="Panel/MenuButtons" unique_id=986662797]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 204.0
+offset_right = 692.0
+offset_bottom = 304.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_ybbjj")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1328297837]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 76.0
+offset_right = 1116.0
+offset_bottom = 227.0
+theme_override_colors/font_color = Color(0.276777, 0.99999994, 0.7646777, 1)
+theme_override_font_sizes/font_size = 150
+text = "Arcade Jamming"
+label_settings = SubResource("LabelSettings_5s5no")
+
+[node name="LabelName" type="Label" parent="Panel" unique_id=64690808]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 336.0
+offset_right = 432.0
+offset_bottom = 400.0
+text = "Name:"
+label_settings = SubResource("LabelSettings_505lh")
+
+[node name="TemplateButton" type="Button" parent="." unique_id=247700151]
+offset_left = 274.0
+offset_top = -177.0
+offset_right = 867.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.9607843, 0.34509805, 0.5803922, 1)
+theme_override_colors/font_pressed_color = Color(0.05490196, 0.68235296, 0.81960785, 1)
+theme_override_colors/font_outline_color = Color(0.39858416, 0.83750993, 0.80855256, 1)
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_w6voe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mf1wf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xuj3a")
+text = "TemplateButton
+"

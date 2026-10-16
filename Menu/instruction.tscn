@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b3rs3qnif6hta"]
 
-[ext_resource type="Script" path="res://Menu/instruction.gd" id="1_j3ftb"]
+[ext_resource type="Script" uid="uid://clsiuwcj0srxr" path="res://Menu/instruction.gd" id="1_j3ftb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_instruction"]
 bg_color = Color(0.1, 0.1, 0.15, 0.95)
@@ -8,37 +8,28 @@ border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
-border_color = Color(0.4, 0.6, 1.0, 0.8)
+border_color = Color(0.4, 0.6, 1, 0.8)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
-[sub_resource type="LabelSettings" id="LabelSettings_instruction"]
-font_size = 36
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
-font_color = Color(1, 1, 1, 1)
-
 [sub_resource type="LabelSettings" id="LabelSettings_continue_hint"]
 font_size = 24
+font_color = Color(0.7, 0.7, 0.7, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
-font_color = Color(0.7, 0.7, 0.7, 1)
 
 [node name="Instruction" type="Node2D" unique_id=709994016]
-script = ExtResource("1_j3ftb")
 process_mode = 3
+script = ExtResource("1_j3ftb")
 
 [node name="DarkOverlay" type="ColorRect" parent="." unique_id=999999999]
 z_index = 80
-color = Color(0, 0, 0, 0.7)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-mouse_filter = 0
+color = Color(0, 0, 0, 0.7)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=297218908]
 top_level = true
@@ -70,19 +61,22 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer2" unique_id=1198868402]
+custom_minimum_size = Vector2(800, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-vertical_alignment = 1
-label_settings = SubResource("LabelSettings_instruction")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
 bbcode_enabled = true
-visible_ratio = 1.0
-custom_minimum_size = Vector2(800, 200)
+vertical_alignment = 1
 
 [node name="ContinueHint" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer2" unique_id=1198868403]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 label_settings = SubResource("LabelSettings_continue_hint")
 horizontal_alignment = 2
 vertical_alignment = 1
-visible = false

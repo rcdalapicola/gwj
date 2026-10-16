@@ -4,6 +4,10 @@ signal pause(is_paused: bool)
 
 @onready var pause_menu: CanvasLayer = $PauseMenu
 @onready var ui_manager: UIManager = $UIManager
+@onready var menu_buttons: Control = $IntroMenu/Panel/MenuButtons
+@onready var start_menu_buttons: Control = $IntroMenu/Panel/StartMenuButtons
+@onready var start_menu_level_selection: Control = $IntroMenu/Panel/StartMenuLevelSelection
+@onready var score: Control = $UIManager/Score
 
 var current_level: Node
 
@@ -20,10 +24,13 @@ func _unhandled_input(event):
 func _on_quitting_game() -> void:
 	#SilentWolf.Scores.save_score("Tester Player", 360)
 	#return
-	if OS.has_feature("web"):
-		get_tree().reload_current_scene()
-	else:
+	#if OS.has_feature("web"):
+	if menu_buttons:
 		get_tree().quit()
+	
+	get_tree().reload_current_scene()
+	#else:
+		#get_tree().quit()
 
 func handle_pause(is_paused: bool) -> void:
 	pause_menu.display(is_paused)
@@ -44,15 +51,64 @@ func _get_level(index: int) -> String:
 		return "res://Menu/levels/lv_0" + str(index) + ".tscn"
 
 	return ""
+	
+func _get_level_emissor(index: int) -> int:
+	match index:
+		0:
+			return 100
+		1:
+			return 5
+		2:
+			return 10
+		3: 
+			return 12
+		4:
+			return 10
+		5:
+			return 10
+		6:
+			return 6
+		7:
+			return 12
+		8:
+			return 14
+		9:
+			return 14
+		
+	return 0
 
 func _on_intro_menu_starting_game() -> void:
-	_on_level_completed(1)
+	menu_buttons.visible = false
+	start_menu_buttons.visible = true
+	
+func _on_intro_menu_start_tutorial() -> void:
+	_on_level_completed(0)
+	GameManager.enableScore(true)
 	$IntroMenu.queue_free()
 	
+func _on_intro_menu_start_skip_tutorial() -> void:
+	_on_level_completed(1)
+	GameManager.enableScore(true)
+	$IntroMenu.queue_free()
+	
+func _on_intro_menu_start_back() -> void:
+	start_menu_buttons.visible = false
+	menu_buttons.visible = true
+
+func select_level_pressed(button_string : String) -> void:
+	_on_level_completed(button_string.to_int())
+	GameManager.enableScore(false)
+	$IntroMenu.queue_free()
+
 func _on_level_completed(next_level: int):
 	if current_level:
 		current_level.queue_free()
-		
+	
+	if next_level > 1:
+		GameManager.updateScore()
+
+	GameManager.setEmissorAmount(_get_level_emissor(next_level))
+
 	current_level = load(_get_level(next_level)).instantiate()
 	print("Getting level: " + _get_level(next_level))
 	current_level.level_completed.connect(_on_level_completed)
@@ -60,11 +116,27 @@ func _on_level_completed(next_level: int):
 	#current_level.crack_cursor(true)
 	#ui_manager.change_cursor(true)
 
+func _on_intro_menu_play_level() -> void:
+	start_menu_buttons.visible = false
+	start_menu_level_selection.visible = true
+	#SilentWolf.Scores.save_score("Ruddy", 100)
+	#get_tree().change_scene_to_file("res://addons/silent_wolf/examples/CustomLeaderboards/ReverseLeaderboard.tscn")
+	#get_tree().change_scene_to_file("res://addons/silent_wolf/Scores/Leaderboard.tscn")
+	
+	#pass
+
+func _on_intro_menu_level_selection_back() -> void:
+	start_menu_level_selection.visible = false
+	start_menu_buttons.visible = true
+
+func _ready() -> void:
+	SilentWolf.configure_scores({
+	"open_scene_on_close": "res://Menu/menu.tscn"
+  })
+
 func change_cursor(in_game : bool):
 	if !current_level:
 		return
-		
-	
 	
 	if in_game:
 		current_level.crack_cursor(true)

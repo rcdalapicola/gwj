@@ -27,8 +27,8 @@ const SWLogger = preload("res://addons/silent_wolf/utils/SWLogger.gd")
 # See https://silentwolf.com for more details
 #
 var config = {
-	"api_key": "FmKF4gtm0Z2RbUAEU62kZ2OZoYLj4PYOURAPIKEY",
-	"game_id": "YOURGAMEID",
+	"api_key": "1HBZMTQm8Xa5QItN401K82K8RZqgcBzw78BdeTyM",
+	"game_id": "gamejamming",
 	"log_level": 0
 }
 

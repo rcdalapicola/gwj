@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dj37vqhadx5iq" path="res://Menu/player.gd" id="1_33qx4"]
 [ext_resource type="Texture2D" uid="uid://bn7p0xkn2lrka" path="res://sprites/player.png" id="1_pukw3"]
-[ext_resource type="Texture2D" uid="uid://3nxl4sl3j65w" path="res://Resources/Sprites/arrow.png" id="3_podnb"]
+[ext_resource type="Texture2D" uid="uid://dgemtsums0pn" path="res://Resources/Sprites/arrow_white.png" id="3_5aegb"]
 [ext_resource type="AudioStream" uid="uid://ccvyw3bht43e5" path="res://Resources/Sound/SoundEffects/Jump9.wav" id="4_kgc56"]
+[ext_resource type="Texture2D" uid="uid://dp3cu6vbxa6mj" path="res://Resources/Sprites/Sprite-0004.png" id="5_5aegb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_podnb"]
 size = Vector2(6, 10)
@@ -134,6 +135,175 @@ _data = {
 &"walk_right": SubResource("Animation_w86dm")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_w86dm"]
+atlas = ExtResource("5_5aegb")
+region = Rect2(0, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8ltg"]
+atlas = ExtResource("5_5aegb")
+region = Rect2(16, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilm8e"]
+atlas = ExtResource("5_5aegb")
+region = Rect2(32, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vwu0"]
+atlas = ExtResource("5_5aegb")
+region = Rect2(48, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt2ap"]
+atlas = ExtResource("5_5aegb")
+region = Rect2(64, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbjpy"]
+atlas = ExtResource("5_5aegb")
+region = Rect2(80, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7es45"]
+atlas = ExtResource("5_5aegb")
+region = Rect2(96, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6irn2"]
+atlas = ExtResource("5_5aegb")
+region = Rect2(112, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fukoq"]
+atlas = ExtResource("5_5aegb")
+region = Rect2(128, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3odmd"]
+atlas = ExtResource("5_5aegb")
+region = Rect2(144, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x43wv"]
+atlas = ExtResource("5_5aegb")
+region = Rect2(160, 0, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_khtxs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w86dm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8ltg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilm8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vwu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt2ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt2ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt2ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt2ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt2ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt2ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt2ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt2ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt2ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt2ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt2ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt2ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt2ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbjpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7es45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6irn2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fukoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3odmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x43wv")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="Player" type="CharacterBody2D" unique_id=348954465]
 script = ExtResource("1_33qx4")
 
@@ -155,7 +325,7 @@ autoplay = &"idle"
 
 [node name="Arrow" type="Sprite2D" parent="." unique_id=706766550]
 position = Vector2(0, -5)
-texture = ExtResource("3_podnb")
+texture = ExtResource("3_5aegb")
 offset = Vector2(32, 0)
 
 [node name="SoundEffects" type="Node" parent="." unique_id=2021648668]
@@ -164,3 +334,12 @@ offset = Vector2(32, 0)
 stream = ExtResource("4_kgc56")
 volume_db = -10.0
 pitch_scale = 0.6
+
+[node name="Arrow3" type="AnimatedSprite2D" parent="." unique_id=1302723190]
+visible = false
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_khtxs")
+autoplay = "default"
+frame_progress = 0.68823767
+centered = false
+offset = Vector2(10, -4)

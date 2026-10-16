@@ -1,7 +1,10 @@
 extends CanvasLayer
 class_name UIManager
 
+@onready var score: Control = $Score
 @onready var cursor: Sprite2D = $Cursor
+@onready var emissor_label: Label = $Score/EmissorLabel
+@onready var score_label: Label = $Score/ScoreLabel
 
 @export var label_ref : Array[Label]
 @export var label_data : Array[UILabelData]
@@ -33,6 +36,24 @@ func update_value(id: String, value: String):
 		return
 	var label = filtered_labels[0]
 	label.set_value(value)
+
+func update_score_UI():
+	score.visible = true
+	var emissor = GameManager.getEmissor()
+	if emissor == 1:
+		emissor_label.text = "1 emissor left"
+	else:
+		emissor_label.text = str(emissor) + " emissors left"
+	
+	score_label.visible = GameManager.isScoreEnabled()
+	
+	score_label.text = "Score: " + str(GameManager.getScore())
+
+func set_score_visibility(is_visible : bool) -> void:
+	score_label.visible = is_visible
+	
+func get_score_visibility() -> bool:
+	return score_label.visible
 
 func _on_label_data_value_change(label: UILabelData):
 	update_label(label)

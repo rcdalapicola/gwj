@@ -1,4 +1,5 @@
 extends CharacterBody2D
+#@onready var arrow: AnimatedSprite2D = $Arrow
 
 @onready var arrow: Sprite2D = $Arrow
 @onready var sprite: Sprite2D = $Sprite

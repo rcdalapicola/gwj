@@ -1,0 +1,435 @@
+[gd_scene format=3 uid="uid://dqwkt08aqxcq0"]
+
+[ext_resource type="Script" uid="uid://bnukociefnquh" path="res://Menu/intro_menu.gd" id="1_rgtm0"]
+[ext_resource type="Texture2D" uid="uid://c0o26wpxy0vfq" path="res://Resources/Images/background.png" id="2_78adm"]
+[ext_resource type="Script" uid="uid://ddvsoedrb6lrs" path="res://Menu/lib_button.gd" id="3_d7crk"]
+[ext_resource type="Script" uid="uid://1ncne64rfqa5" path="res://Menu/lib_vList.gd" id="4_ynd0a"]
+[ext_resource type="Script" uid="uid://bhwygvobfr22e" path="res://Menu/select_level_button.gd" id="5_4v1y4"]
+[ext_resource type="PackedScene" uid="uid://bdakfrmsqallg" path="res://Menu/remap_screen.tscn" id="6_p4f3a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8w4re"]
+bg_color = Color(0, 0, 0, 0.65882355)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5s5no"]
+font_size = 128
+font_color = Color(0.6188471, 0.30195934, 0.750479, 1)
+shadow_size = 2
+shadow_color = Color(0.98966557, 0.6159282, 0.34157112, 1)
+shadow_offset = Vector2(4, 4)
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(2, 2)
+stacked_shadow_0/color = Color(0.960481, 0.34429014, 0.5820958, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6voe"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.9647059, 0.43137255, 0.11372549, 0)
+draw_center = false
+border_width_left = 4
+border_width_top = 1
+border_width_right = 4
+border_width_bottom = 10
+border_color = Color(0.55196667, 0.25846702, 0.2651768, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 1
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mf1wf"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 5
+border_width_top = 1
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.91684145, 0.484533, 0.52246106, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 1
+shadow_color = Color(0.78352344, 0.78352344, 0.78352326, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuj3a"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 4
+border_width_top = 1
+border_width_right = 4
+border_width_bottom = 10
+border_color = Color(0.5529412, 0.25882354, 0.26666668, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 1
+shadow_color = Color(0.8, 0.9529412, 0.94509804, 0.6)
+
+[node name="IntroMenu" type="CanvasLayer" unique_id=402112571]
+script = ExtResource("1_rgtm0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1493283606]
+offset_right = 1154.0
+offset_bottom = 656.0
+texture = ExtResource("2_78adm")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=1623647882]
+offset_right = 1157.0
+offset_bottom = 655.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8w4re")
+
+[node name="MenuButtons" type="Control" parent="Panel" unique_id=901602776]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="Panel/MenuButtons" unique_id=951426559]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 260.0
+offset_right = 873.0
+offset_bottom = 284.0
+text = "Start game"
+
+[node name="LibButton" type="Node" parent="Panel/MenuButtons/Start" unique_id=1115211257]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="Leaderboard" type="Button" parent="Panel/MenuButtons" unique_id=1174745028]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 356.0
+offset_right = 873.0
+offset_bottom = 380.0
+text = "Leaderboard"
+
+[node name="LibButton" type="Node" parent="Panel/MenuButtons/Leaderboard" unique_id=155193398]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="ConfigureInput" type="Button" parent="Panel/MenuButtons" unique_id=484169950]
+layout_mode = 0
+offset_left = 309.0
+offset_top = 450.0
+offset_right = 876.0
+offset_bottom = 474.0
+text = "Configure Input"
+
+[node name="LibButton" type="Node" parent="Panel/MenuButtons/ConfigureInput" unique_id=1782018665]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="Exit" type="Button" parent="Panel/MenuButtons" unique_id=1353243487]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 546.0
+offset_right = 881.0
+offset_bottom = 570.0
+text = "Exit
+"
+
+[node name="LibButton" type="Node" parent="Panel/MenuButtons/Exit" unique_id=610329312]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="ButtonReplicator" type="Node" parent="Panel/MenuButtons" unique_id=785426010 node_paths=PackedStringArray("template_button")]
+script = ExtResource("4_ynd0a")
+template_button = NodePath("../../../TemplateButton")
+metadata/_custom_type_script = "uid://1ncne64rfqa5"
+
+[node name="StartMenuButtons" type="Control" parent="Panel" unique_id=585261237]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StartTutorial" type="Button" parent="Panel/StartMenuButtons" unique_id=1656316191]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 232.0
+offset_right = 873.0
+offset_bottom = 256.0
+text = "Start from tutorial"
+
+[node name="LibButton" type="Node" parent="Panel/StartMenuButtons/StartTutorial" unique_id=309617548]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="StartSkip" type="Button" parent="Panel/StartMenuButtons" unique_id=1516098435]
+layout_mode = 0
+offset_left = 309.0
+offset_top = 332.0
+offset_right = 876.0
+offset_bottom = 356.0
+text = "Skip tutorial"
+
+[node name="LibButton" type="Node" parent="Panel/StartMenuButtons/StartSkip" unique_id=1508884075]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="StartLevel" type="Button" parent="Panel/StartMenuButtons" unique_id=1869428475]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 433.0
+offset_right = 881.0
+offset_bottom = 457.0
+text = "Casual mode"
+
+[node name="LibButton" type="Node" parent="Panel/StartMenuButtons/StartLevel" unique_id=1162186896]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="Back" type="Button" parent="Panel/StartMenuButtons" unique_id=636838923]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 566.0
+offset_right = 881.0
+offset_bottom = 590.0
+text = "Back"
+
+[node name="LibButton" type="Node" parent="Panel/StartMenuButtons/Back" unique_id=948902969]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="ButtonReplicator" type="Node" parent="Panel/StartMenuButtons" unique_id=1425982373 node_paths=PackedStringArray("template_button")]
+script = ExtResource("4_ynd0a")
+template_button = NodePath("../../../TemplateButton")
+metadata/_custom_type_script = "uid://1ncne64rfqa5"
+
+[node name="StartMenuLevelSelection" type="Control" parent="Panel" unique_id=2011895887]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonReplicator" type="Node" parent="Panel/StartMenuLevelSelection" unique_id=907259318 node_paths=PackedStringArray("template_button")]
+script = ExtResource("4_ynd0a")
+template_button = NodePath("../../../TemplateButton")
+metadata/_custom_type_script = "uid://1ncne64rfqa5"
+
+[node name="1" type="Button" parent="Panel/StartMenuLevelSelection" unique_id=1452448805 node_paths=PackedStringArray("root")]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 232.0
+offset_right = 412.0
+offset_bottom = 317.0
+text = "1
+"
+script = ExtResource("5_4v1y4")
+root = NodePath("")
+
+[node name="LibButton" type="Node" parent="Panel/StartMenuLevelSelection/1" unique_id=317888626]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="2" type="Button" parent="Panel/StartMenuLevelSelection" unique_id=29780850 node_paths=PackedStringArray("root")]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 232.0
+offset_right = 568.0
+offset_bottom = 317.0
+text = "2
+"
+script = ExtResource("5_4v1y4")
+root = NodePath("")
+
+[node name="LibButton" type="Node" parent="Panel/StartMenuLevelSelection/2" unique_id=1870672571]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="3" type="Button" parent="Panel/StartMenuLevelSelection" unique_id=22921480 node_paths=PackedStringArray("root")]
+layout_mode = 0
+offset_left = 625.0
+offset_top = 232.0
+offset_right = 724.0
+offset_bottom = 317.0
+text = "3
+"
+script = ExtResource("5_4v1y4")
+root = NodePath("")
+
+[node name="LibButton" type="Node" parent="Panel/StartMenuLevelSelection/3" unique_id=509108457]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="4" type="Button" parent="Panel/StartMenuLevelSelection" unique_id=674346698 node_paths=PackedStringArray("root")]
+layout_mode = 0
+offset_left = 781.0
+offset_top = 232.0
+offset_right = 880.0
+offset_bottom = 317.0
+text = "4"
+script = ExtResource("5_4v1y4")
+root = NodePath("")
+
+[node name="LibButton" type="Node" parent="Panel/StartMenuLevelSelection/4" unique_id=1154535502]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="5" type="Button" parent="Panel/StartMenuLevelSelection" unique_id=222536567 node_paths=PackedStringArray("root")]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 347.0
+offset_right = 412.0
+offset_bottom = 432.0
+text = "5"
+script = ExtResource("5_4v1y4")
+root = NodePath("")
+
+[node name="LibButton" type="Node" parent="Panel/StartMenuLevelSelection/5" unique_id=171245889]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="6" type="Button" parent="Panel/StartMenuLevelSelection" unique_id=1909174905 node_paths=PackedStringArray("root")]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 347.0
+offset_right = 568.0
+offset_bottom = 432.0
+text = "6"
+script = ExtResource("5_4v1y4")
+root = NodePath("")
+
+[node name="LibButton" type="Node" parent="Panel/StartMenuLevelSelection/6" unique_id=165317219]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="7" type="Button" parent="Panel/StartMenuLevelSelection" unique_id=1748772383 node_paths=PackedStringArray("root")]
+layout_mode = 0
+offset_left = 625.0
+offset_top = 347.0
+offset_right = 724.0
+offset_bottom = 432.0
+text = "7"
+script = ExtResource("5_4v1y4")
+root = NodePath("")
+
+[node name="LibButton" type="Node" parent="Panel/StartMenuLevelSelection/7" unique_id=2002393474]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="8" type="Button" parent="Panel/StartMenuLevelSelection" unique_id=1243092308 node_paths=PackedStringArray("root")]
+layout_mode = 0
+offset_left = 781.0
+offset_top = 347.0
+offset_right = 880.0
+offset_bottom = 432.0
+text = "8"
+script = ExtResource("5_4v1y4")
+root = NodePath("")
+
+[node name="LibButton" type="Node" parent="Panel/StartMenuLevelSelection/8" unique_id=1206701420]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="9" type="Button" parent="Panel/StartMenuLevelSelection" unique_id=117631678 node_paths=PackedStringArray("root")]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 462.0
+offset_right = 412.0
+offset_bottom = 547.0
+text = "9"
+script = ExtResource("5_4v1y4")
+root = NodePath("")
+
+[node name="LibButton" type="Node" parent="Panel/StartMenuLevelSelection/9" unique_id=507812929]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="10" type="Button" parent="Panel/StartMenuLevelSelection" unique_id=101882005 node_paths=PackedStringArray("root")]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 462.0
+offset_right = 568.0
+offset_bottom = 547.0
+text = "10"
+script = ExtResource("5_4v1y4")
+root = NodePath("")
+
+[node name="LibButton" type="Node" parent="Panel/StartMenuLevelSelection/10" unique_id=1082472403]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="11" type="Button" parent="Panel/StartMenuLevelSelection" unique_id=1808857952 node_paths=PackedStringArray("root")]
+layout_mode = 0
+offset_left = 625.0
+offset_top = 462.0
+offset_right = 724.0
+offset_bottom = 547.0
+text = "11"
+script = ExtResource("5_4v1y4")
+root = NodePath("")
+
+[node name="LibButton" type="Node" parent="Panel/StartMenuLevelSelection/11" unique_id=1881314801]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="12" type="Button" parent="Panel/StartMenuLevelSelection" unique_id=1484186417 node_paths=PackedStringArray("root")]
+layout_mode = 0
+offset_left = 781.0
+offset_top = 462.0
+offset_right = 880.0
+offset_bottom = 547.0
+text = "12"
+script = ExtResource("5_4v1y4")
+root = NodePath("")
+
+[node name="LibButton" type="Node" parent="Panel/StartMenuLevelSelection/12" unique_id=1212786979]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="Back" type="Button" parent="Panel/StartMenuLevelSelection" unique_id=1739421022]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 573.0
+offset_right = 881.0
+offset_bottom = 597.0
+text = "Back"
+
+[node name="LibButton" type="Node" parent="Panel/StartMenuLevelSelection/Back" unique_id=1086103671]
+script = ExtResource("3_d7crk")
+metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
+
+[node name="Label" type="Label" parent="Panel" unique_id=1002645820]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 76.0
+offset_right = 1116.0
+offset_bottom = 227.0
+theme_override_colors/font_color = Color(0.276777, 0.99999994, 0.7646777, 1)
+theme_override_font_sizes/font_size = 150
+text = "Arcade Jamming"
+label_settings = SubResource("LabelSettings_5s5no")
+
+[node name="TemplateButton" type="Button" parent="." unique_id=1235533113]
+offset_left = 274.0
+offset_top = -177.0
+offset_right = 867.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.9607843, 0.34509805, 0.5803922, 1)
+theme_override_colors/font_pressed_color = Color(0.05490196, 0.68235296, 0.81960785, 1)
+theme_override_colors/font_outline_color = Color(0.39858416, 0.83750993, 0.80855256, 1)
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_w6voe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mf1wf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xuj3a")
+text = "TemplateButton
+"
+
+[node name="RemapScreen" parent="." unique_id=185351715 node_paths=PackedStringArray("template_button") instance=ExtResource("6_p4f3a")]
+visible = false
+offset_left = 174.0
+offset_right = 965.0
+template_button = NodePath("../TemplateButton")
+
+[connection signal="pressed" from="Panel/MenuButtons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Panel/MenuButtons/ConfigureInput" to="." method="_on_configure_input_pressed"]
+[connection signal="pressed" from="Panel/MenuButtons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="screen_closing" from="RemapScreen" to="." method="_on_remap_screen_screen_closing"]

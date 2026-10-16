@@ -17,7 +17,6 @@ var input_actions = {
 	"up": "Jump",
 	"right": "Move right",
 	"left": "Move left",
-	"click": "Add Emissor",
 	"reset": "Reset level",
 	"pause": "Pause",
 }

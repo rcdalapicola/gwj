@@ -1,5 +1,4 @@
 [gd_scene format=4 uid="uid://8ixi726e0i6f"]
-[ext_resource type="PackedScene" path="res://Menu/crt_filter.tscn" id="crt_filter_res"]
 
 [ext_resource type="Script" uid="uid://dnmut1kncodgt" path="res://Menu/levels/lv_tut_01.gd" id="1_171vf"]
 [ext_resource type="Texture2D" uid="uid://daq08gtqlxq5g" path="res://Resources/Sprites/tileset.png" id="2_r0n1h"]
@@ -10,6 +9,7 @@
 [ext_resource type="Script" uid="uid://csraol3vblvya" path="res://Menu/crack_generator.gd" id="7_cnff0"]
 [ext_resource type="PackedScene" uid="uid://dc16n8o25ru27" path="res://Menu/crack_reverse.tscn" id="8_kq1hw"]
 [ext_resource type="PackedScene" uid="uid://b4kplxjvqmjs0" path="res://Menu/flag.tscn" id="9_rkh88"]
+[ext_resource type="PackedScene" path="res://Menu/crt_filter.tscn" id="crt_filter_res"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cotva"]
 texture = ExtResource("2_r0n1h")
@@ -65,7 +65,7 @@ current_level_index = 9
 scene_to_spawn = ExtResource("8_kq1hw")
 
 [node name="Flag" parent="." unique_id=487654749 instance=ExtResource("9_rkh88")]
-position = Vector2(1254, 535)
+position = Vector2(1256, 544)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1520288633]
 z_index = 50
@@ -85,8 +85,8 @@ visible = false
 position = Vector2(866.5, 199.5)
 shape = SubResource("RectangleShape2D_xjbfw")
 
+[node name="CRTFilter" parent="." unique_id=921133011 instance=ExtResource("crt_filter_res")]
+
 [connection signal="body_entered" from="Flag" to="LevelManager" method="_on_flag_body_entered"]
 [connection signal="body_exited" from="Flag" to="LevelManager" method="_on_flag_body_exited"]
 [connection signal="body_exited" from="PlayableArea" to="LevelManager" method="_on_playable_area_body_exited"]
-
-[node name="CRTFilter" parent="." instance=ExtResource("crt_filter_res")]
