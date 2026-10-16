@@ -25,6 +25,10 @@ func setEmissorAmount(total_emissors : int) -> void:
 	current_emissor = total_emissors
 	_updateUI()
 
+func resetScore() -> void:
+	score = 0
+	_updateUI()
+
 func updateScore() -> void:
 	score += current_emissor
 	current_emissor = 0

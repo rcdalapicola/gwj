@@ -35,7 +35,6 @@ func _on_quitting_game() -> void:
 	if current_level and is_instance_valid(current_level):
 		var lvl = current_level
 		current_level = null
-		lvl.crack_cursor(false)
 		lvl.queue_free()
 
 	get_tree().paused = false
@@ -45,8 +44,10 @@ func _on_quitting_game() -> void:
 	if pause_menu:
 		pause_menu.display(false)
 
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if $IntroMenu:
 		$IntroMenu.visible = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		if menu_buttons:
 			menu_buttons.visible = true
 		if start_menu_buttons:
@@ -181,6 +182,7 @@ func _on_custom_menu_exit() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if $IntroMenu:
 		$IntroMenu.visible = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		if menu_buttons:
 			menu_buttons.visible = true
 		if start_menu_buttons:
@@ -192,6 +194,11 @@ func _ready() -> void:
 	SilentWolf.configure_scores({
 	"open_scene_on_close": "res://Menu/menu.tscn"
   })
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _process(_delta: float) -> void:
+	if $IntroMenu and $IntroMenu.visible:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func change_cursor(in_game : bool):
 	if !current_level:

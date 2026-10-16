@@ -7,7 +7,7 @@ const SWLogger = preload("res://addons/silent_wolf/utils/SWLogger.gd")
 var list_index = 0
 # Replace the leaderboard name if you're not using the default leaderboard
 var ld_name = "main"
-var max_scores = 10
+var max_scores = 5
 
 
 func _ready():

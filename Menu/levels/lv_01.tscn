@@ -1,5 +1,4 @@
 [gd_scene format=4 uid="uid://cjbhnwtow7pq7"]
-[ext_resource type="PackedScene" path="res://Menu/crt_filter.tscn" id="crt_filter_res"]
 
 [ext_resource type="Script" uid="uid://dnmut1kncodgt" path="res://Menu/levels/lv_tut_01.gd" id="1_xjbfw"]
 [ext_resource type="Texture2D" uid="uid://daq08gtqlxq5g" path="res://Resources/Sprites/tileset.png" id="2_7gvab"]
@@ -10,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b4kplxjvqmjs0" path="res://Menu/flag.tscn" id="7_2ssh6"]
 [ext_resource type="Texture2D" uid="uid://c14tued4al4jx" path="res://Resources/Sprites/circle.png" id="8_rjiwt"]
 [ext_resource type="Script" uid="uid://7cf1wtffquab" path="res://Menu/sprite_2d.gd" id="9_0p4jk"]
+[ext_resource type="PackedScene" path="res://Menu/crt_filter.tscn" id="crt_filter_res"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cotva"]
 texture = ExtResource("2_7gvab")
@@ -79,8 +79,8 @@ color = Color(0, 0, 0, 0)
 position = Vector2(597, 322)
 shape = SubResource("RectangleShape2D_xjbfw")
 
+[node name="CRTFilter" parent="." unique_id=940661862 instance=ExtResource("crt_filter_res")]
+
 [connection signal="body_entered" from="Flag" to="LevelManager" method="_on_flag_body_entered"]
 [connection signal="body_exited" from="Flag" to="LevelManager" method="_on_flag_body_exited"]
 [connection signal="body_exited" from="PlayableArea" to="LevelManager" method="_on_playable_area_body_exited"]
-
-[node name="CRTFilter" parent="." instance=ExtResource("crt_filter_res")]

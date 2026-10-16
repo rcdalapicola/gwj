@@ -10,9 +10,11 @@ func _ready():
 func crack_cursor(active : bool):
 	if active:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-		find_child("Cursor").visible = true
-		#cursor.visible = true
+		var c = find_child("Cursor")
+		if c:
+			c.visible = true
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		find_child("Cursor").visible = false
-		#cursor.visible = false
+		var c = find_child("Cursor")
+		if c:
+			c.visible = false

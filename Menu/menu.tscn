@@ -594,6 +594,7 @@ autoplay = true
 [connection signal="quitting_game" from="IntroMenu" to="." method="_on_quitting_game"]
 [connection signal="starting_game" from="IntroMenu" to="." method="_on_intro_menu_starting_game"]
 [connection signal="pressed" from="IntroMenu/Panel/MenuButtons/Start" to="IntroMenu" method="_on_start_pressed"]
+[connection signal="pressed" from="IntroMenu/Panel/MenuButtons/Leaderboard" to="." method="_on_leaderboard_pressed"]
 [connection signal="pressed" from="IntroMenu/Panel/MenuButtons/ConfigureInput" to="IntroMenu" method="_on_configure_input_pressed"]
 [connection signal="pressed" from="IntroMenu/Panel/MenuButtons/Exit" to="IntroMenu" method="_on_exit_pressed"]
 [connection signal="pressed" from="IntroMenu/Panel/StartMenuButtons/StartTutorial" to="." method="_on_intro_menu_start_tutorial"]
