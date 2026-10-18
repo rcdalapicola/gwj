@@ -41,9 +41,9 @@ func update_score_UI():
 	score.visible = true
 	var emissor = GameManager.getEmissor()
 	if emissor == 1:
-		emissor_label.text = "1 emissor left"
+		emissor_label.text = "1 emitter left"
 	else:
-		emissor_label.text = str(emissor) + " emissors left"
+		emissor_label.text = str(emissor) + " emitters left"
 	
 	score_label.visible = GameManager.isScoreEnabled()
 	

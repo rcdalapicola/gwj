@@ -6,6 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://d2rhrkhmjmrku" path="res://Menu/menu_button.tres" id="2_ihied"]
 [ext_resource type="Script" uid="uid://1ncne64rfqa5" path="res://Menu/lib_vList.gd" id="2_raj00"]
 [ext_resource type="Texture2D" uid="uid://c0o26wpxy0vfq" path="res://Resources/Images/background.png" id="3_cotva"]
+[ext_resource type="Texture2D" uid="uid://biw22d8x42fui" path="res://Resources/Sprites/emissor.png" id="4_5s5no"]
 [ext_resource type="PackedScene" uid="uid://bdakfrmsqallg" path="res://Menu/remap_screen.tscn" id="5_ofseh"]
 [ext_resource type="Script" uid="uid://bnukociefnquh" path="res://Menu/intro_menu.gd" id="5_w6voe"]
 [ext_resource type="Script" uid="uid://bhwygvobfr22e" path="res://Menu/select_level_button.gd" id="6_2p233"]
@@ -589,6 +590,13 @@ texture = ExtResource("12_5s5no")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1622521792]
 stream = ExtResource("10_xuj3a")
 autoplay = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=263657932]
+offset_left = 130.0
+offset_top = 896.0
+offset_right = 244.0
+offset_bottom = 1025.0
+texture = ExtResource("4_5s5no")
 
 [connection signal="pause" from="." to="." method="_on_pause_change"]
 [connection signal="quitting_game" from="IntroMenu" to="." method="_on_quitting_game"]

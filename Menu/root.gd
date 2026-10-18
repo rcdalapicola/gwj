@@ -14,7 +14,7 @@ var current_level_index: int = -1
 
 var is_paused = false
 
-const last_level = 9
+const last_level = 12
 
 func _unhandled_input(event):
 	if $IntroMenu and $IntroMenu.visible:
@@ -80,6 +80,8 @@ func _get_level(index: int) -> String:
 	
 	if index >= 1 && index < 10:
 		return "res://Menu/levels/lv_0" + str(index) + ".tscn"
+	elif index >= 10:
+		return "res://Menu/levels/lv_" + str(index) + ".tscn"
 
 	return ""
 	
@@ -105,6 +107,12 @@ func _get_level_emissor(index: int) -> int:
 			return 14
 		9:
 			return 14
+		10:
+			return 18
+		11:
+			return 30
+		12:
+			return 30
 		
 	return 0
 

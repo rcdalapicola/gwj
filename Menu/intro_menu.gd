@@ -6,6 +6,10 @@ signal quitting_game
 @onready var remap_screen: Panel = $RemapScreen
 @onready var menu_buttons: Control = $Panel/MenuButtons
 
+func _ready() -> void:
+	if $"../UIManager/Score":
+		$"../UIManager/Score".visible = false
+
 func _on_configure_input_pressed() -> void:
 	remap_screen.open()
 	menu_buttons.visible = false
