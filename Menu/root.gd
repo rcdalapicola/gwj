@@ -10,6 +10,7 @@ signal pause(is_paused: bool)
 @onready var score: Control = $UIManager/Score
 
 var current_level: Node
+var current_level_index: int = -1
 
 var is_paused = false
 
@@ -146,7 +147,7 @@ func _on_level_completed(next_level: int):
 
 	GameManager.updateScore()
 
-	if next_level == 1:
+	if current_level_index == 0 and next_level == 1:
 		GameManager.resetScore()
 
 	if next_level > last_level:
@@ -159,6 +160,7 @@ func _on_level_completed(next_level: int):
 
 	GameManager.setEmissorAmount(_get_level_emissor(next_level))
 
+	current_level_index = next_level
 	current_level = load(_get_level(next_level)).instantiate()
 	current_level.crack_cursor(true)
 	current_level.level_completed.connect(_on_level_completed)
