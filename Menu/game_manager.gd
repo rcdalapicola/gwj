@@ -36,6 +36,8 @@ func updateScore() -> void:
 
 func enableScore(enable : bool) -> void:
 	score_enabled = enable
+	if enable:
+		_updateUI()
 	
 func isScoreEnabled() -> bool:
 	return score_enabled
