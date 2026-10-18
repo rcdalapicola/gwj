@@ -50,6 +50,7 @@ func _on_quitting_game() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if $IntroMenu:
 		$IntroMenu.visible = true
+		score.visible = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		if menu_buttons:
 			menu_buttons.visible = true
@@ -190,6 +191,7 @@ func _on_custom_menu_exit() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if $IntroMenu:
 		$IntroMenu.visible = true
+		score.visible = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		if menu_buttons:
 			menu_buttons.visible = true
