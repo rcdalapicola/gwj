@@ -222,7 +222,7 @@ func _ready() -> void:
 	add_child(leaderboard)
 	var close_btn = leaderboard.get_node("Board/CloseButtonContainer/CloseButton")
 	close_btn.pressed.disconnect(leaderboard._on_CloseButton_pressed)
-	close_btn.pressed.connect(callable(_on_leaderboard_close_pressed))
+	close_btn.pressed.connect(Callable(_on_leaderboard_close_pressed))
 
 func _process(_delta: float) -> void:
 	if $IntroMenu and $IntroMenu.visible:
