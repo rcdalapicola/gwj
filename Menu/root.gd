@@ -209,6 +209,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if $IntroMenu and $IntroMenu.visible:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		score.visible = false
 
 func change_cursor(in_game : bool):
 	if !current_level:
