@@ -37,10 +37,6 @@ func remove_collision_in_circle():
 			var cell = Vector2i(x, y)
 
 			var world_pos = tilemap.to_global(tilemap.map_to_local(cell))
-
-			# skip tiles close to player
-			if world_pos.distance_to(player.global_position) < player_safe_radius:
-				continue
 			
 			if world_pos.distance_squared_to(center) <= radius_sqrd:
 
@@ -49,7 +45,9 @@ func remove_collision_in_circle():
 				var atlas_coords = tilemap.get_cell_atlas_coords(cell)
 
 				if source_id == 0 and alternate_id == 3:
-					tilemap.set_cell(cell, source_id, atlas_coords, 0)
+					# skip tiles close to player
+					if world_pos.distance_to(player.global_position) > player_safe_radius:
+						tilemap.set_cell(cell, source_id, atlas_coords, 0)
 				elif source_id == 0 and alternate_id == 0:
 					tilemap.set_cell(cell, source_id, atlas_coords, 3)
 

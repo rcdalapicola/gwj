@@ -201,9 +201,9 @@ offset_bottom = 40.0
 [node name="StartTutorial" type="Button" parent="IntroMenu/Panel/StartMenuButtons" unique_id=1560869071]
 layout_mode = 0
 offset_left = 313.0
-offset_top = 232.0
+offset_top = 211.0
 offset_right = 873.0
-offset_bottom = 256.0
+offset_bottom = 235.0
 text = "Start from tutorial"
 
 [node name="LibButton" type="Node" parent="IntroMenu/Panel/StartMenuButtons/StartTutorial" unique_id=1261122899]
@@ -213,9 +213,9 @@ metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
 [node name="StartSkip" type="Button" parent="IntroMenu/Panel/StartMenuButtons" unique_id=249211593]
 layout_mode = 0
 offset_left = 309.0
-offset_top = 332.0
+offset_top = 311.0
 offset_right = 876.0
-offset_bottom = 356.0
+offset_bottom = 335.0
 text = "Skip tutorial"
 
 [node name="LibButton" type="Node" parent="IntroMenu/Panel/StartMenuButtons/StartSkip" unique_id=704719548]
@@ -225,9 +225,9 @@ metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
 [node name="StartLevel" type="Button" parent="IntroMenu/Panel/StartMenuButtons" unique_id=1432470031]
 layout_mode = 0
 offset_left = 307.0
-offset_top = 433.0
+offset_top = 412.0
 offset_right = 881.0
-offset_bottom = 457.0
+offset_bottom = 436.0
 text = "Casual mode"
 
 [node name="LibButton" type="Node" parent="IntroMenu/Panel/StartMenuButtons/StartLevel" unique_id=1145126801]
@@ -237,9 +237,9 @@ metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
 [node name="Back" type="Button" parent="IntroMenu/Panel/StartMenuButtons" unique_id=736665507]
 layout_mode = 0
 offset_left = 307.0
-offset_top = 566.0
+offset_top = 545.0
 offset_right = 881.0
-offset_bottom = 590.0
+offset_bottom = 569.0
 text = "Back"
 
 [node name="LibButton" type="Node" parent="IntroMenu/Panel/StartMenuButtons/Back" unique_id=1901843615]
@@ -265,9 +265,9 @@ metadata/_custom_type_script = "uid://1ncne64rfqa5"
 [node name="1" type="Button" parent="IntroMenu/Panel/StartMenuLevelSelection" unique_id=2085838202 node_paths=PackedStringArray("root")]
 layout_mode = 0
 offset_left = 313.0
-offset_top = 232.0
+offset_top = 201.0
 offset_right = 412.0
-offset_bottom = 317.0
+offset_bottom = 286.0
 text = "1
 "
 script = ExtResource("6_2p233")
@@ -280,9 +280,9 @@ metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
 [node name="2" type="Button" parent="IntroMenu/Panel/StartMenuLevelSelection" unique_id=1295255970 node_paths=PackedStringArray("root")]
 layout_mode = 0
 offset_left = 469.0
-offset_top = 232.0
+offset_top = 201.0
 offset_right = 568.0
-offset_bottom = 317.0
+offset_bottom = 286.0
 text = "2
 "
 script = ExtResource("6_2p233")
@@ -295,9 +295,9 @@ metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
 [node name="3" type="Button" parent="IntroMenu/Panel/StartMenuLevelSelection" unique_id=1989246179 node_paths=PackedStringArray("root")]
 layout_mode = 0
 offset_left = 625.0
-offset_top = 232.0
+offset_top = 201.0
 offset_right = 724.0
-offset_bottom = 317.0
+offset_bottom = 286.0
 text = "3
 "
 script = ExtResource("6_2p233")
@@ -310,9 +310,9 @@ metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
 [node name="4" type="Button" parent="IntroMenu/Panel/StartMenuLevelSelection" unique_id=1616788083 node_paths=PackedStringArray("root")]
 layout_mode = 0
 offset_left = 781.0
-offset_top = 232.0
+offset_top = 201.0
 offset_right = 880.0
-offset_bottom = 317.0
+offset_bottom = 286.0
 text = "4"
 script = ExtResource("6_2p233")
 root = NodePath("../../../..")
@@ -324,9 +324,9 @@ metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
 [node name="5" type="Button" parent="IntroMenu/Panel/StartMenuLevelSelection" unique_id=996146813 node_paths=PackedStringArray("root")]
 layout_mode = 0
 offset_left = 313.0
-offset_top = 347.0
+offset_top = 316.0
 offset_right = 412.0
-offset_bottom = 432.0
+offset_bottom = 401.0
 text = "5"
 script = ExtResource("6_2p233")
 root = NodePath("../../../..")
@@ -338,9 +338,9 @@ metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
 [node name="6" type="Button" parent="IntroMenu/Panel/StartMenuLevelSelection" unique_id=1082160178 node_paths=PackedStringArray("root")]
 layout_mode = 0
 offset_left = 469.0
-offset_top = 347.0
+offset_top = 316.0
 offset_right = 568.0
-offset_bottom = 432.0
+offset_bottom = 401.0
 text = "6"
 script = ExtResource("6_2p233")
 root = NodePath("../../../..")
@@ -352,9 +352,9 @@ metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
 [node name="7" type="Button" parent="IntroMenu/Panel/StartMenuLevelSelection" unique_id=502516518 node_paths=PackedStringArray("root")]
 layout_mode = 0
 offset_left = 625.0
-offset_top = 347.0
+offset_top = 316.0
 offset_right = 724.0
-offset_bottom = 432.0
+offset_bottom = 401.0
 text = "7"
 script = ExtResource("6_2p233")
 root = NodePath("../../../..")
@@ -366,9 +366,9 @@ metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
 [node name="8" type="Button" parent="IntroMenu/Panel/StartMenuLevelSelection" unique_id=153200227 node_paths=PackedStringArray("root")]
 layout_mode = 0
 offset_left = 781.0
-offset_top = 347.0
+offset_top = 316.0
 offset_right = 880.0
-offset_bottom = 432.0
+offset_bottom = 401.0
 text = "8"
 script = ExtResource("6_2p233")
 root = NodePath("../../../..")
@@ -379,10 +379,10 @@ metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
 
 [node name="9" type="Button" parent="IntroMenu/Panel/StartMenuLevelSelection" unique_id=1597526348 node_paths=PackedStringArray("root")]
 layout_mode = 0
-offset_left = 313.0
-offset_top = 462.0
-offset_right = 412.0
-offset_bottom = 547.0
+offset_left = 248.0
+offset_top = 431.0
+offset_right = 347.0
+offset_bottom = 516.0
 text = "9"
 script = ExtResource("6_2p233")
 root = NodePath("../../../..")
@@ -393,10 +393,10 @@ metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
 
 [node name="10" type="Button" parent="IntroMenu/Panel/StartMenuLevelSelection" unique_id=1197278016 node_paths=PackedStringArray("root")]
 layout_mode = 0
-offset_left = 469.0
-offset_top = 462.0
-offset_right = 568.0
-offset_bottom = 547.0
+offset_left = 404.0
+offset_top = 431.0
+offset_right = 503.0
+offset_bottom = 516.0
 text = "10"
 script = ExtResource("6_2p233")
 root = NodePath("../../../..")
@@ -407,10 +407,10 @@ metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
 
 [node name="11" type="Button" parent="IntroMenu/Panel/StartMenuLevelSelection" unique_id=1466494262 node_paths=PackedStringArray("root")]
 layout_mode = 0
-offset_left = 625.0
-offset_top = 462.0
-offset_right = 724.0
-offset_bottom = 547.0
+offset_left = 560.0
+offset_top = 431.0
+offset_right = 659.0
+offset_bottom = 516.0
 text = "11"
 script = ExtResource("6_2p233")
 root = NodePath("../../../..")
@@ -419,26 +419,26 @@ root = NodePath("../../../..")
 script = ExtResource("1_rwxi6")
 metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
 
-[node name="12" type="Button" parent="IntroMenu/Panel/StartMenuLevelSelection" unique_id=887441890 node_paths=PackedStringArray("root")]
+[node name="Challange" type="Button" parent="IntroMenu/Panel/StartMenuLevelSelection" unique_id=887441890 node_paths=PackedStringArray("root")]
 layout_mode = 0
-offset_left = 781.0
-offset_top = 462.0
-offset_right = 880.0
-offset_bottom = 547.0
-text = "12"
+offset_left = 716.0
+offset_top = 431.0
+offset_right = 816.0
+offset_bottom = 516.0
+text = "Challange!"
 script = ExtResource("6_2p233")
 root = NodePath("../../../..")
 
-[node name="LibButton" type="Node" parent="IntroMenu/Panel/StartMenuLevelSelection/12" unique_id=424582325]
+[node name="LibButton" type="Node" parent="IntroMenu/Panel/StartMenuLevelSelection/Challange" unique_id=424582325]
 script = ExtResource("1_rwxi6")
 metadata/_custom_type_script = "uid://ddvsoedrb6lrs"
 
 [node name="Back" type="Button" parent="IntroMenu/Panel/StartMenuLevelSelection" unique_id=1037850299]
 layout_mode = 0
 offset_left = 307.0
-offset_top = 573.0
+offset_top = 542.0
 offset_right = 881.0
-offset_bottom = 597.0
+offset_bottom = 566.0
 text = "Back"
 
 [node name="LibButton" type="Node" parent="IntroMenu/Panel/StartMenuLevelSelection/Back" unique_id=400021923]

@@ -14,7 +14,7 @@ var current_level_index: int = -1
 
 var is_paused = false
 
-const last_level = 12
+const last_level = 11
 
 func _unhandled_input(event):
 	if $IntroMenu and $IntroMenu.visible:
@@ -77,6 +77,9 @@ func _on_pause_menu_resuming_game() -> void:
 func _get_level(index: int) -> String:
 	if index == 0:
 		return "res://Menu/levels/lv_tut_01.tscn"
+		
+	if index == -1:
+		return "res://Menu/levels/lv_challange.tscn"
 	
 	if index >= 1 && index < 10:
 		return "res://Menu/levels/lv_0" + str(index) + ".tscn"
@@ -87,6 +90,8 @@ func _get_level(index: int) -> String:
 	
 func _get_level_emissor(index: int) -> int:
 	match index:
+		-1:
+			return 30
 		0:
 			return 100
 		1:
@@ -110,8 +115,6 @@ func _get_level_emissor(index: int) -> int:
 		10:
 			return 18
 		11:
-			return 30
-		12:
 			return 30
 		
 	return 0
@@ -140,7 +143,12 @@ func _on_intro_menu_start_back() -> void:
 
 func select_level_pressed(button_string : String) -> void:
 	GameManager.resetScore()
-	_on_level_completed(button_string.to_int())
+	var level_index = 0
+	if button_string == "Challange!":
+		level_index = -1
+	else:
+		level_index = button_string.to_int()
+	_on_level_completed(level_index)
 	GameManager.enableScore(false)
 	if $IntroMenu:
 		$IntroMenu.visible = false
