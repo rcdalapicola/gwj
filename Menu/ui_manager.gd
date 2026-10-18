@@ -38,7 +38,8 @@ func update_value(id: String, value: String):
 	label.set_value(value)
 
 func update_score_UI():
-	score.visible = true
+	if GameManager.isScoreEnabled():
+		score.visible = true
 	var emissor = GameManager.getEmissor()
 	if emissor == 1:
 		emissor_label.text = "1 emissor left"
