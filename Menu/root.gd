@@ -220,9 +220,6 @@ func _ready() -> void:
 	leaderboard = leaderboard_scene.instantiate()
 	leaderboard.visible = false
 	add_child(leaderboard)
-	var close_btn = leaderboard.get_node("Board/CloseButtonContainer/CloseButton")
-	close_btn.pressed.disconnect(leaderboard._on_CloseButton_pressed)
-	close_btn.pressed.connect(Callable(_on_leaderboard_close_pressed))
 
 func _process(_delta: float) -> void:
 	if $IntroMenu and $IntroMenu.visible:
@@ -243,7 +240,7 @@ func change_cursor(in_game : bool):
 
 
 func _on_leaderboard_pressed() -> void:
-	leaderboard.visible = true
-
-func _on_leaderboard_close_pressed() -> void:
-	leaderboard.visible = false
+	if leaderboard:
+		leaderboard.visible = true
+	else:
+		get_tree().change_scene_to_file("res://addons/silent_wolf/Scores/Leaderboard.tscn")
