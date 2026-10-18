@@ -144,12 +144,8 @@ func _on_level_completed(next_level: int):
 	is_paused = false
 	pause_menu.display(false)
 
-	if next_level== 1:
-		GameManager.resetScore()
-		GameManager.setEmissorAmount(0)
-		
 	GameManager.updateScore()
-		
+
 	if next_level > last_level:
 		if !GameManager.isScoreEnabled():
 			GameManager.resetScore()
