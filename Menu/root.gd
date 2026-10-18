@@ -146,6 +146,9 @@ func _on_level_completed(next_level: int):
 
 	GameManager.updateScore()
 
+	if next_level == 1:
+		GameManager.resetScore()
+
 	if next_level > last_level:
 		if !GameManager.isScoreEnabled():
 			GameManager.resetScore()
