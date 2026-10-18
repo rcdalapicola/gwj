@@ -40,6 +40,8 @@ func _on_quitting_game() -> void:
 	get_tree().paused = false
 	is_paused = false
 	GameManager.resetScore()
+	GameManager.enableScore(false)
+	score.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if pause_menu:
 		pause_menu.display(false)
@@ -142,8 +144,11 @@ func _on_level_completed(next_level: int):
 	is_paused = false
 	pause_menu.display(false)
 
-	if next_level > 1:
-		GameManager.updateScore()
+	if next_level== 1:
+		GameManager.resetScore()
+		GameManager.setEmissorAmount(0)
+		
+	GameManager.updateScore()
 		
 	if next_level > last_level:
 		if !GameManager.isScoreEnabled():
@@ -179,6 +184,8 @@ func _on_custom_menu_exit() -> void:
 	get_tree().paused = false
 	is_paused = false
 	GameManager.resetScore()
+	GameManager.enableScore(false)
+	score.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if $IntroMenu:
 		$IntroMenu.visible = true
