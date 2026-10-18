@@ -10,8 +10,6 @@ signal pause(is_paused: bool)
 @onready var score: Control = $UIManager/Score
 
 var current_level: Node
-const leaderboard_scene: PackedScene = preload("res://addons/silent_wolf/Scores/Leaderboard.tscn")
-var leaderboard: Node2D
 var current_level_index: int = -1
 
 var is_paused = false
@@ -216,11 +214,6 @@ func _ready() -> void:
   })
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-	# Pre-instantiate hidden leaderboard so it loads fast when opened
-	leaderboard = leaderboard_scene.instantiate()
-	leaderboard.visible = false
-	add_child(leaderboard)
-
 func _process(_delta: float) -> void:
 	if $IntroMenu and $IntroMenu.visible:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -240,7 +233,4 @@ func change_cursor(in_game : bool):
 
 
 func _on_leaderboard_pressed() -> void:
-	if leaderboard:
-		leaderboard.visible = true
-	else:
-		get_tree().change_scene_to_file("res://addons/silent_wolf/Scores/Leaderboard.tscn")
+	get_tree().change_scene_to_file("res://addons/silent_wolf/Scores/Leaderboard.tscn")
